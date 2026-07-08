@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Cybaxis Corp</title>
+<meta name="description" content="Get in touch with Cybaxis Corp for a free consultation on your technology program, cloud migration, or DevOps transformation.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap nav">
+    <a href="index.html" class="logo">Cybaxis<span>.</span></a>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="experience.html">Experience</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="navcta">
+      <a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Book a consultation</a>
+      <button class="menutoggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h1>Let's talk about your program.</h1>
+    <p>Whether you have a defined scope or just a problem you can't name yet, reach out. We respond within one business day.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap grid-2">
+    <div>
+      <!--
+        FORM SETUP: this form posts to Formspree (free tier, no backend needed).
+        1. Create a free account at formspree.io
+        2. Create a new form, copy your form ID
+        3. Replace YOUR_FORM_ID below with that ID
+        Until you do this, the form will not actually send anywhere.
+      -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="formgrid">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company">
+          </div>
+          <div class="field full">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field full">
+            <label for="topic">What are you working on?</label>
+            <select id="topic" name="topic">
+              <option>Program Management</option>
+              <option>Cloud Migration</option>
+              <option>DevOps &amp; CI/CD</option>
+              <option>AI Adoption</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="message">Details</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send message</button>
+      </form>
+    </div>
+
+    <div>
+      <div class="eyebrow">Direct contact</div>
+      <h3 class="mb-24">Prefer email or a call?</h3>
+      <div class="numlist">
+        <div class="row">
+          <div class="n">—</div>
+          <div><h4>Email</h4><p><a href="mailto:hello@cybaxiscorp.net" style="color:var(--brass);">hello@cybaxiscorp.net</a></p></div>
+        </div>
+        <div class="row">
+          <div class="n">—</div>
+          <div><h4>Service area</h4><p>Based in Metro Vancouver, BC. Serving clients remotely across Canada and the US.</p></div>
+        </div>
+        <div class="row" style="border-bottom:none;">
+          <div class="n">—</div>
+          <div><h4>LinkedIn</h4><p><a href="https://www.linkedin.com" target="_blank" rel="noopener" style="color:var(--brass);">Connect on LinkedIn →</a></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <div class="logo">Cybaxis<span>.</span></div>
+        <p style="max-width:260px;">Technology program management, cloud modernization, and AI adoption for enterprise teams. Founded 2021.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul><li><a href="about.html">About</a></li><li><a href="experience.html">Experience</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="services.html">Program Management</a></li><li><a href="services.html">Cloud Migration</a></li><li><a href="services.html">DevOps &amp; CI/CD</a></li><li><a href="services.html">AI Adoption</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="mailto:hello@cybaxiscorp.net">hello@cybaxiscorp.net</a></li><li>Metro Vancouver, BC</li><li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="footbottom">
+      <span>© 2026 Cybaxis Corp. All rights reserved.</span>
+      <span>Est. 2021</span>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
