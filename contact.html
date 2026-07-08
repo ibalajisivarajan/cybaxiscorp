@@ -40,14 +40,9 @@
 <section>
   <div class="wrap grid-2">
     <div>
-      <!--
-        FORM SETUP: this form posts to Formspree (free tier, no backend needed).
-        1. Create a free account at formspree.io
-        2. Create a new form, copy your form ID
-        3. Replace YOUR_FORM_ID below with that ID
-        Until you do this, the form will not actually send anywhere.
-      -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form id="contact-form" action="https://formspree.io/f/mgojjaer" method="POST">
+        <div class="form-msg" data-form-msg></div>
+        <input type="hidden" name="_subject" value="New inquiry — Cybaxis Corp contact form">
         <div class="formgrid">
           <div class="field">
             <label for="name">Name</label>
