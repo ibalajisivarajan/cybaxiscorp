@@ -16,9 +16,15 @@ contact.html
 styles.css
 script.js
 .nojekyll        ← must stay in repo root, tells GitHub Pages to skip Jekyll processing
+assets/          ← real Cybaxis Corp logo + favicon files, extracted from the uploaded brand PDFs/PNGs
+  logo-white-web.png     (nav + footer, used on dark backgrounds)
+  logo-color-web.png     (available for light-background placements if needed later)
+  favicon.ico / favicon-32.png / favicon-16.png / favicon-512.png / apple-touch-icon.png
 ```
 
-All internal links (nav, footer, CSS, JS) are **relative paths** (`services.html`, `styles.css`, not `/services.html`), so the site works correctly whether it's served at a domain root (Netlify) or a subpath (GitHub Pages project sites serve at `username.github.io/repo-name/`). No path rewriting needed.
+All internal links (nav, footer, CSS, JS, image paths) are **relative paths** (`services.html`, `styles.css`, `assets/logo-white-web.png`), so the site works correctly whether it's served at a domain root (Netlify) or a subpath (GitHub Pages project sites serve at `username.github.io/repo-name/`). No path rewriting needed.
+
+**Note on brand assets:** the uploaded logo files include a version with the tagline "Cyberspace Solutions" underneath the wordmark. The site copy currently positions the company as general "IT Consulting" rather than cybersecurity-specific. If Cyberspace Solutions is the intended positioning, the homepage/about copy should be revisited — the logo integration itself doesn't depend on that decision, so it's safe to push as-is and settle the positioning question separately.
 
 ---
 

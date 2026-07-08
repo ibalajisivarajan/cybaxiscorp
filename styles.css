@@ -7,17 +7,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
-  --ink: #0F1A2E;
-  --ink-soft: #16233B;
-  --paper: #F1F2ED;
-  --paper-dim: #E7E8E1;
-  --brass: #B8873B;
-  --brass-light: #D2A662;
-  --teal: #3F6C6B;
-  --slate: #232A38;
-  --grey: #6B7280;
-  --line: rgba(15, 26, 46, 0.12);
-  --line-on-dark: rgba(241, 242, 237, 0.16);
+  --ink: #0A3A52;
+  --ink-soft: #12495F;
+  --paper: #F2F5F6;
+  --paper-dim: #E5EAEC;
+  --brass: #C79A3A;
+  --brass-light: #DDB65C;
+  --teal: #3D84A8;
+  --slate: #1E2B33;
+  --grey: #5B6B74;
+  --line: rgba(10, 58, 82, 0.14);
+  --line-on-dark: rgba(242, 245, 246, 0.16);
   --max: 1180px;
 
   --serif: 'Fraunces', Georgia, serif;
@@ -138,14 +138,16 @@ header.site {
   height: 76px;
 }
 
-.logo {
-  font-family: var(--serif);
-  font-size: 21px;
-  font-weight: 600;
-  color: var(--paper);
-  letter-spacing: 0.01em;
+.logo-img {
+  height: 30px;
+  width: auto;
+  display: block;
 }
-.logo span { color: var(--brass-light); }
+
+.footgrid .logo-img {
+  height: 34px;
+  margin-bottom: 14px;
+}
 
 .navlinks {
   display: flex;
