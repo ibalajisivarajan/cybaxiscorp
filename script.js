@@ -25,35 +25,4 @@ document.addEventListener('DOMContentLoaded', () => {
       a.classList.add('active');
     }
   });
-
-  // Persistent scroll-driven 3D card
-  const card = document.querySelector('.scroll3d-card');
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (card && !prefersReduced) {
-    let ticking = false;
-
-    const apply = () => {
-      const baseTop = parseFloat(getComputedStyle(card).top) || 0;
-      const margin = 24;
-      const maxTranslate = Math.max(0, window.innerHeight - baseTop - card.offsetHeight - margin);
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
-      const translateY = scrollPercent * maxTranslate;
-      const rotateY = scrollPercent * 360;
-      card.style.transform = `perspective(700px) translateY(${translateY}px) rotateY(${rotateY}deg)`;
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(apply);
-        ticking = true;
-      }
-    };
-
-    apply();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-  }
 });
