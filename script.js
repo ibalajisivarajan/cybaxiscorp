@@ -2,33 +2,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 
-  /* ---------- Chapter rail: active section via IntersectionObserver ---------- */
-  const railLinks = Array.from(document.querySelectorAll('.chapter-rail a'));
-  const sections = railLinks
-    .map(a => document.querySelector(a.getAttribute('href')))
-    .filter(Boolean);
-  const chapterRail = document.querySelector('.chapter-rail');
+  /* ---------- Fixed logo: swap to the white mark over the two dark scenes ---------- */
   const fixedLogo = document.querySelector('.fixed-logo');
-  const DARK_SECTION_IDS = new Set(['problem', 'close']);
+  const darkSections = ['problem', 'close']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
 
-  if (sections.length) {
-    const railObserver = new IntersectionObserver(
+  if (fixedLogo && darkSections.length) {
+    const logoObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          const link = railLinks.find(a => a.getAttribute('href') === `#${entry.target.id}`);
-          if (!link) return;
-          if (entry.isIntersecting) {
-            railLinks.forEach(a => a.classList.remove('active'));
-            link.classList.add('active');
-            const onDark = DARK_SECTION_IDS.has(entry.target.id);
-            if (chapterRail) chapterRail.classList.toggle('on-dark', onDark);
-            if (fixedLogo) fixedLogo.classList.toggle('on-dark', onDark);
-          }
+          fixedLogo.classList.toggle('on-dark', entry.isIntersecting);
         });
       },
       { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
     );
-    sections.forEach(s => railObserver.observe(s));
+    darkSections.forEach(s => logoObserver.observe(s));
   }
 
   /* ---------- Generic reveal-on-scroll (once) ---------- */

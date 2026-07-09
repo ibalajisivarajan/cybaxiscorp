@@ -129,46 +129,7 @@ p { color: var(--grey); font-size: 16px; }
 .fixed-logo.on-dark .logo-color { opacity: 0; }
 .fixed-logo.on-dark .logo-white { opacity: 1; }
 
-.chapter-rail {
-  position: fixed;
-  right: 28px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 200;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: flex-end;
-}
-.chapter-rail a {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: rgba(37, 78, 112, 0.34);
-  letter-spacing: 0.06em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.25s ease;
-}
-.chapter-rail a::after {
-  content: "";
-  width: 14px;
-  height: 1px;
-  background: currentColor;
-  transition: width 0.25s ease, background 0.25s ease;
-}
-.chapter-rail a.active { color: var(--crimson); }
-.chapter-rail a.active::after { width: 26px; background: var(--crimson); }
-.chapter-rail a:hover { color: var(--navy); }
-
-/* rail reads light-on-dark while a dark scene is behind it */
-.chapter-rail.on-dark a { color: rgba(255, 255, 255, 0.4); }
-.chapter-rail.on-dark a.active { color: var(--cyan); }
-.chapter-rail.on-dark a.active::after { background: var(--cyan); }
-.chapter-rail.on-dark a:hover { color: #fff; }
-
 @media (max-width: 780px) {
-  .chapter-rail { display: none; }
   .fixed-logo { top: 20px; left: 20px; height: 18px; }
 }
 
@@ -207,6 +168,17 @@ p { color: var(--grey); font-size: 16px; }
 }
 .scene-hero .lede { margin-bottom: 44px; }
 .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.hero-candidate-link {
+  display: inline-flex;
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--teal);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.hero-candidate-link:hover { color: var(--crimson); border-color: var(--crimson); }
 
 .scroll-cue {
   position: absolute;
@@ -384,6 +356,7 @@ p { color: var(--grey); font-size: 16px; }
   border-radius: 14px;
   padding: 28px 26px;
 }
+.testimonial-n { font-family: var(--mono); font-size: 13px; color: var(--crimson); letter-spacing: 0.06em; margin-bottom: 14px; }
 .glass-card blockquote { font-family: var(--serif); font-size: 17px; font-style: italic; line-height: 1.5; color: var(--navy); margin-bottom: 18px; }
 .glass-card .attr { font-family: var(--mono); font-size: 11.5px; color: var(--grey); }
 .glass-card .attr strong { color: var(--crimson); }
