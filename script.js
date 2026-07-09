@@ -114,47 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
     deliverBars.forEach((b, i) => b.classList.toggle('active', i <= idx));
   };
 
-  /* ---------- Dot-matrix parallax field ----------
-     Offset is wrapped modulo the layer's own tile size, so each fixed
-     layer only ever needs to cover its small buffer zone (see CSS) no
-     matter how far the page has scrolled — never an unbounded translate. */
-  const dotLayers = Array.from(document.querySelectorAll('.dot-field')).map(el => ({
-    el,
-    speed: parseFloat(el.dataset.speed || '0'),
-    tile: parseFloat(el.dataset.tile || '32'),
-  }));
-
-  /* ---------- Floating glass placement card ---------- */
-  const card = document.querySelector('.float-glass-card');
-
   /* ---------- Unified scroll-driven animation loop ---------- */
   let ticking = false;
 
   const update = () => {
     const scrollY = window.scrollY;
-
-    if (!prefersReduced) {
-      dotLayers.forEach(({ el, speed, tile }) => {
-        const raw = scrollY * speed;
-        const offset = ((raw % tile) + tile) % tile;
-        el.style.transform = `translate3d(0, ${offset}px, 0)`;
-      });
-
-      if (card) {
-        const baseTop = parseFloat(getComputedStyle(card).top) || 0;
-        const margin = 24;
-        const maxTranslate = Math.max(0, window.innerHeight - baseTop - card.offsetHeight - margin);
-        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = scrollable > 0 ? clamp(scrollY / scrollable, 0, 1) : 0;
-        const translateY = scrollPercent * maxTranslate;
-        const rotateY = scrollPercent * 360;
-        card.style.transform = `perspective(900px) translateY(${translateY}px) rotateY(${rotateY}deg)`;
-      }
-    }
-
     updateScrub(scrollY);
     updateDeliver(scrollY);
-
     ticking = false;
   };
 
