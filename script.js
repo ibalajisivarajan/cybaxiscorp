@@ -2,22 +2,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 
-  /* ---------- Fixed logo: swap to the white mark over the two dark scenes ---------- */
+  /* ---------- Dot nav: active section + light/dark chrome swap ---------- */
+  const dotLinks = Array.from(document.querySelectorAll('.dot-nav a'));
+  const sections = dotLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const dotNav = document.querySelector('.dot-nav');
   const fixedLogo = document.querySelector('.fixed-logo');
-  const darkSections = ['problem', 'close']
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
+  const dotFields = Array.from(document.querySelectorAll('.dot-field'));
 
-  if (fixedLogo && darkSections.length) {
-    const logoObserver = new IntersectionObserver(
+  if (sections.length) {
+    const sectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          fixedLogo.classList.toggle('on-dark', entry.isIntersecting);
+          if (!entry.isIntersecting) return;
+          const link = dotLinks.find(a => a.getAttribute('href') === `#${entry.target.id}`);
+          if (link) {
+            dotLinks.forEach(a => a.classList.remove('active'));
+            link.classList.add('active');
+          }
+          const onLight = entry.target.classList.contains('light-scene');
+          if (dotNav) dotNav.classList.toggle('on-light', onLight);
+          if (fixedLogo) fixedLogo.classList.toggle('on-light', onLight);
+          dotFields.forEach(el => el.classList.toggle('dimmed', onLight));
         });
       },
-      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+      { threshold: 0.5 }
     );
-    darkSections.forEach(s => logoObserver.observe(s));
+    sections.forEach(s => sectionObserver.observe(s));
   }
 
   /* ---------- Generic reveal-on-scroll (once) ---------- */
@@ -32,17 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
     revealTargets.forEach((el, i) => {
       if (el.classList.contains('pill') || el.classList.contains('industry-row')) {
-        el.style.transitionDelay = `${(i % 8) * 60}ms`;
+        el.style.transitionDelay = `${(i % 8) * 50}ms`;
       }
       revealObserver.observe(el);
     });
   }
 
-  /* ---------- Count-up stats on scroll-into-view ---------- */
+  /* ---------- Count-up stat on scroll-into-view ---------- */
   const statNums = document.querySelectorAll('[data-countup]');
   if (statNums.length) {
     const countObserver = new IntersectionObserver(
@@ -57,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el.textContent = `${target}${suffix}`;
             return;
           }
-          const duration = 900;
+          const duration = 800;
           const start = performance.now();
           const tick = (now) => {
             const p = clamp((now - start) / duration, 0, 1);
@@ -73,43 +83,42 @@ document.addEventListener('DOMContentLoaded', () => {
     statNums.forEach(el => countObserver.observe(el));
   }
 
-  /* ---------- Scene 02: pinned scrub-text reveal ---------- */
-  const scrubSection = document.querySelector('.scene-problem');
-  const scrubSpans = scrubSection ? Array.from(scrubSection.querySelectorAll('.scrub-text span')) : [];
+  /* ---------- Dot-matrix parallax field ----------
+     Offset wrapped modulo the layer's own tile size, so each fixed
+     layer only ever needs to cover its small buffer zone (see CSS)
+     no matter how far the page has scrolled. */
+  const dotLayers = dotFields.map(el => ({
+    el,
+    speed: parseFloat(el.dataset.speed || '0'),
+    tile: parseFloat(el.dataset.tile || '32'),
+  }));
 
-  const updateScrub = (scrollY) => {
-    if (!scrubSection || !scrubSpans.length) return;
-    const top = scrubSection.offsetTop;
-    const scrollDistance = scrubSection.offsetHeight - window.innerHeight;
-    const progress = scrollDistance > 0 ? clamp((scrollY - top) / scrollDistance, 0, 1) : 0;
-    scrubSpans.forEach((span, i) => {
-      const threshold = i / scrubSpans.length;
-      span.classList.toggle('lit', progress >= threshold);
-    });
-  };
+  /* ---------- Floating glass placement card ---------- */
+  const card = document.querySelector('.float-glass-card');
 
-  /* ---------- Scene 03: pinned service cross-fade ---------- */
-  const deliverSection = document.querySelector('.scene-deliver');
-  const deliverPanels = deliverSection ? Array.from(deliverSection.querySelectorAll('.deliver-panel')) : [];
-  const deliverBars = deliverSection ? Array.from(deliverSection.querySelectorAll('.deliver-progress .bar')) : [];
-
-  const updateDeliver = (scrollY) => {
-    if (!deliverSection || !deliverPanels.length) return;
-    const top = deliverSection.offsetTop;
-    const scrollDistance = deliverSection.offsetHeight - window.innerHeight;
-    const progress = scrollDistance > 0 ? clamp((scrollY - top) / scrollDistance, 0, 1) : 0;
-    const idx = Math.min(deliverPanels.length - 1, Math.floor(progress * deliverPanels.length));
-    deliverPanels.forEach((p, i) => p.classList.toggle('active', i === idx));
-    deliverBars.forEach((b, i) => b.classList.toggle('active', i <= idx));
-  };
-
-  /* ---------- Unified scroll-driven animation loop ---------- */
   let ticking = false;
-
   const update = () => {
     const scrollY = window.scrollY;
-    updateScrub(scrollY);
-    updateDeliver(scrollY);
+
+    if (!prefersReduced) {
+      dotLayers.forEach(({ el, speed, tile }) => {
+        const raw = scrollY * speed;
+        const offset = ((raw % tile) + tile) % tile;
+        el.style.transform = `translate3d(0, ${offset}px, 0)`;
+      });
+
+      if (card) {
+        const baseTop = parseFloat(getComputedStyle(card).top) || 0;
+        const margin = 24;
+        const maxTranslate = Math.max(0, window.innerHeight - baseTop - card.offsetHeight - margin);
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = scrollable > 0 ? clamp(scrollY / scrollable, 0, 1) : 0;
+        const translateY = scrollPercent * maxTranslate;
+        const rotateY = scrollPercent * 360;
+        card.style.transform = `perspective(900px) translateY(${translateY}px) rotateY(${rotateY}deg)`;
+      }
+    }
+
     ticking = false;
   };
 
