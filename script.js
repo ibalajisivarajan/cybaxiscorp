@@ -1,33 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+  const isMobile = () => window.innerWidth < 768;
 
-  /* ---------- Dot nav: active section + light/dark chrome swap ---------- */
-  const dotLinks = Array.from(document.querySelectorAll('.dot-nav a'));
-  const sections = dotLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-  const dotNav = document.querySelector('.dot-nav');
-  const fixedLogo = document.querySelector('.fixed-logo');
-  const dotFields = Array.from(document.querySelectorAll('.dot-field'));
+  /* ---------- Sticky nav: solid on scroll + mobile toggle ---------- */
+  const nav = document.querySelector('.site-nav');
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
 
-  if (sections.length) {
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const link = dotLinks.find(a => a.getAttribute('href') === `#${entry.target.id}`);
-          if (link) {
-            dotLinks.forEach(a => a.classList.remove('active'));
-            link.classList.add('active');
-          }
-          const onLight = entry.target.classList.contains('light-scene');
-          if (dotNav) dotNav.classList.toggle('on-light', onLight);
-          if (fixedLogo) fixedLogo.classList.toggle('on-light', onLight);
-          dotFields.forEach(el => el.classList.toggle('dimmed', onLight));
-        });
-      },
-      { threshold: 0.5 }
-    );
-    sections.forEach(s => sectionObserver.observe(s));
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
 
   /* ---------- Generic reveal-on-scroll (once) ---------- */
@@ -83,41 +74,103 @@ document.addEventListener('DOMContentLoaded', () => {
     statNums.forEach(el => countObserver.observe(el));
   }
 
-  /* ---------- Dot-matrix parallax field ----------
-     Offset wrapped modulo the layer's own tile size, so each fixed
-     layer only ever needs to cover its small buffer zone (see CSS)
-     no matter how far the page has scrolled. */
-  const dotLayers = dotFields.map(el => ({
-    el,
-    speed: parseFloat(el.dataset.speed || '0'),
-    tile: parseFloat(el.dataset.tile || '32'),
-  }));
+  /* ---------- Talent network: drifting nodes + lines in hero ----------
+     ~20-25 nodes, randomized position + per-node depth factor
+     (0.02-0.14). Nodes within a distance threshold get connected by a
+     line. Depth parallax applies translateY(scrollY * depth) on scroll,
+     transform-only for GPU compositing. Rebuilt on resize (debounced). */
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const networkLayer = document.querySelector('.network-layer');
+  const networkSvg = document.querySelector('.network-svg');
+  let networkEls = [];
 
-  /* ---------- Floating glass placement card ---------- */
-  const card = document.querySelector('.float-glass-card');
+  const buildNetwork = () => {
+    if (!networkLayer || !networkSvg) return;
+    const rect = networkLayer.getBoundingClientRect();
+    const w = rect.width;
+    const h = rect.height;
+    if (w === 0 || h === 0) return;
 
+    networkSvg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    networkSvg.innerHTML = '';
+
+    const count = isMobile() ? 14 : 24;
+    const nodes = Array.from({ length: count }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      depth: 0.02 + Math.random() * 0.12,
+      r: 1.6 + Math.random() * 2.2,
+    }));
+
+    const threshold = Math.min(w, h) * 0.24;
+    const lineGroup = document.createElementNS(svgNS, 'g');
+    nodes.forEach((a, i) => {
+      nodes.slice(i + 1).forEach((b) => {
+        const d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < threshold) {
+          const line = document.createElementNS(svgNS, 'line');
+          line.setAttribute('x1', a.x);
+          line.setAttribute('y1', a.y);
+          line.setAttribute('x2', b.x);
+          line.setAttribute('y2', b.y);
+          line.setAttribute('class', 'net-line');
+          line.dataset.depth = ((a.depth + b.depth) / 2).toFixed(3);
+          lineGroup.appendChild(line);
+        }
+      });
+    });
+    networkSvg.appendChild(lineGroup);
+
+    const nodeGroup = document.createElementNS(svgNS, 'g');
+    nodes.forEach((n) => {
+      const c = document.createElementNS(svgNS, 'circle');
+      c.setAttribute('cx', n.x);
+      c.setAttribute('cy', n.y);
+      c.setAttribute('r', n.r);
+      c.setAttribute('class', 'net-node');
+      c.dataset.depth = n.depth.toFixed(3);
+      nodeGroup.appendChild(c);
+    });
+    networkSvg.appendChild(nodeGroup);
+
+    networkEls = Array.from(networkSvg.querySelectorAll('[data-depth]'));
+  };
+
+  buildNetwork();
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(buildNetwork, 200);
+  });
+
+  /* ---------- Layered card rise: service/process cards ---------- */
+  const riseCards = document.querySelectorAll('.rise-card, .process-step');
+
+  /* ---------- Scroll-driven updates (single rAF loop) ---------- */
   let ticking = false;
   const update = () => {
     const scrollY = window.scrollY;
+    const heavyParallax = !prefersReduced && !isMobile();
 
-    if (!prefersReduced) {
-      dotLayers.forEach(({ el, speed, tile }) => {
-        const raw = scrollY * speed;
-        const offset = ((raw % tile) + tile) % tile;
-        el.style.transform = `translate3d(0, ${offset}px, 0)`;
+    if (heavyParallax) {
+      networkEls.forEach((el) => {
+        const depth = parseFloat(el.dataset.depth);
+        el.style.transform = `translateY(${scrollY * depth}px)`;
       });
 
-      if (card) {
-        const baseTop = parseFloat(getComputedStyle(card).top) || 0;
-        const margin = 24;
-        const maxTranslate = Math.max(0, window.innerHeight - baseTop - card.offsetHeight - margin);
-        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = scrollable > 0 ? clamp(scrollY / scrollable, 0, 1) : 0;
-        const translateY = scrollPercent * maxTranslate;
-        const rotateY = scrollPercent * 360;
-        card.style.transform = `perspective(900px) translateY(${translateY}px) rotateY(${rotateY}deg)`;
-      }
+      const vh = window.innerHeight;
+      riseCards.forEach((card, i) => {
+        const rect = card.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const dist = center - vh / 2;
+        const speed = 0.03 + (i % 4) * 0.015;
+        const translate = clamp(dist * -speed, -36, 36);
+        card.style.transform = `translateY(${translate}px)`;
+      });
     }
+
+    if (nav) nav.classList.toggle('scrolled', scrollY > 20);
 
     ticking = false;
   };

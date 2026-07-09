@@ -8,89 +8,92 @@
 <link rel="icon" type="image/png" href="assets/favicon-32.png">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="dot-field d1" data-speed="0.09" data-tile="34"></div>
-<div class="dot-field d2" data-speed="-0.06" data-tile="54"></div>
-<div class="dot-field d3" data-speed="0.14" data-tile="22"></div>
-<div class="dot-field d4" data-speed="-0.18" data-tile="16"></div>
-<div class="grain"></div>
-
-<a href="#hero" class="fixed-logo">
-  <img src="assets/logo-color-web.png" alt="Cybaxis Corp" class="logo-color">
-  <img src="assets/logo-white-web.png" alt="Cybaxis Corp" class="logo-white">
-</a>
-
-<nav class="dot-nav" aria-label="Sections">
-  <a href="#hero" aria-label="Hero"></a>
-  <a href="#problem" aria-label="The problem"></a>
-  <a href="#deliver" aria-label="What we deliver"></a>
-  <a href="#how-we-work" aria-label="How we work"></a>
-  <a href="#technology" aria-label="Technology we staff"></a>
-  <a href="#industries" aria-label="Industries and clients"></a>
-  <a href="#why-numbers" aria-label="Why Cybaxis"></a>
-  <a href="#close" aria-label="Get in touch"></a>
+<nav class="site-nav" aria-label="Primary">
+  <div class="nav-wrap">
+    <a href="#hero" class="nav-logo"><img src="assets/logo-white-web.png" alt="Cybaxis Corp"></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"></button>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#tech">Tech</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-primary btn-sm">Talk to us</a>
+    </div>
+  </div>
 </nav>
-
-<div class="float-glass-card" aria-hidden="true">
-  <span class="fgc-status">Available</span>
-  <div class="fgc-role">Senior Cloud Engineer</div>
-  <div class="fgc-sub">Contract &middot; AWS / Azure</div>
-</div>
 
 <main>
 
-  <!-- 01 HERO -->
-  <section id="hero" class="scene scene-hero">
-    <div class="scene-image-bg" style="background-image:url('https://images.unsplash.com/photo-1690378820474-b468b8ee64d3?q=80&w=1600&auto=format&fit=crop');"></div>
-    <div class="wrap">
-      <div class="eyebrow">Cybaxis Corp — IT Staffing</div>
-      <h1>IT staffing, done fast, done right.</h1>
-      <p class="lede">Cybaxis Corp connects enterprise IT teams with contract, contract-to-hire, and permanent talent — pre-vetted candidates shortlisted fast for hiring managers, real opportunities for IT professionals ready for what's next.</p>
+  <!-- 01 HERO — talent network parallax -->
+  <section id="hero" class="section hero">
+    <div class="hero-image-bg" role="img" aria-label="Modern office building exterior"></div>
+    <div class="network-layer" aria-hidden="true">
+      <svg class="network-svg"></svg>
+    </div>
+    <div class="wrap hero-content">
+      <p class="eyebrow">IT Staffing &amp; Talent Solutions</p>
+      <h1>We connect technology talent to the teams building what's next.</h1>
+      <p class="lede">Cybaxis Corp places contract, contract-to-hire, and permanent IT talent for enterprise teams — pre-vetted candidates, shortlisted fast, ready to deploy.</p>
       <div class="hero-ctas">
-        <a href="#close" class="btn btn-primary">Request talent</a>
-        <a href="#deliver" class="btn btn-ghost">See what we do</a>
+        <a href="#contact" class="btn btn-primary">Start a search</a>
+        <a href="#clients" class="btn btn-ghost">See our work</a>
       </div>
-      <a href="#close" class="hero-candidate-link">Looking for your next role instead? &rarr;</a>
+      <a href="#contact" class="hero-candidate-link">Looking for your next role instead? &rarr;</a>
     </div>
     <div class="scroll-cue"><span>Scroll</span><span class="stem"></span></div>
   </section>
 
-  <!-- 02 THE PROBLEM -->
-  <section id="problem" class="scene scene-problem">
+  <!-- 02 TRUST / STATS BAND -->
+  <section id="trust" class="trust-band" aria-label="Company facts">
     <div class="wrap">
-      <p class="scrub-text">
-        An open seat doesn't just sit quietly — it slows the whole team around it.
-        <span class="pop">A wrong hire</span> costs more than the salary — it costs the time to notice, unwind, and start over.
-      </p>
+      <div class="trust-grid">
+        <div class="trust-stat">
+          <div class="num"><span data-countup="2021">0</span></div>
+          <div class="lbl">Founded</div>
+        </div>
+        <div class="trust-stat">
+          <div class="num">USA &middot; Canada &middot; India</div>
+          <div class="lbl">Where we place talent</div>
+        </div>
+        <div class="trust-stat">
+          <div class="num">Contract &amp; Permanent</div>
+          <div class="lbl">Engagement types</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 03 WHAT WE DELIVER -->
-  <section id="deliver" class="scene scene-deliver">
+  <!-- 03 SERVICES — image parallax bg -->
+  <section id="services" class="section">
+    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?q=80&w=1800&auto=format&fit=crop');" role="img" aria-label="IT professionals collaborating"></div>
     <div class="wrap">
-      <div class="eyebrow reveal">What we deliver</div>
+      <p class="eyebrow reveal">What We Deliver</p>
       <h2 class="reveal">Four ways we place IT talent.</h2>
-      <div class="deliver-grid">
-        <div class="deliver-card reveal">
-          <div class="deliver-idx">01</div>
+      <div class="card-grid">
+        <div class="rise-card">
+          <div class="idx">01</div>
           <h3>Contract Staffing</h3>
           <p>Short-term IT talent that's productive by day three, not week three — for the ramp-up, the leave coverage, the deadline you can't push.</p>
         </div>
-        <div class="deliver-card reveal">
-          <div class="deliver-idx">02</div>
+        <div class="rise-card">
+          <div class="idx">02</div>
           <h3>Contract-to-Hire</h3>
           <p>Try the fit on the job, then convert to permanent when it's right for both sides — without starting the search over from zero.</p>
         </div>
-        <div class="deliver-card reveal">
-          <div class="deliver-idx">03</div>
+        <div class="rise-card">
+          <div class="idx">03</div>
           <h3>Direct Placement</h3>
           <p>Permanent hires for roles that aren't going anywhere — vetted like it, sourced like it, closed like it matters.</p>
         </div>
-        <div class="deliver-card reveal">
-          <div class="deliver-idx">04</div>
+        <div class="rise-card">
+          <div class="idx">04</div>
           <h3>Executive &amp; Niche Search</h3>
           <p>Leadership and hard-to-fill specialist roles, found through direct outreach — not a job board post and a wait.</p>
         </div>
@@ -98,11 +101,11 @@
     </div>
   </section>
 
-  <!-- 04 HOW WE WORK -->
-  <section id="how-we-work" class="scene">
-    <div class="scene-image-bg" style="background-image:url('https://images.unsplash.com/photo-1758870973151-a5b0a7a63e5f?q=80&w=1600&auto=format&fit=crop');"></div>
+  <!-- 04 PROCESS — image parallax bg, layered-card rise -->
+  <section id="process" class="section">
+    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1800&auto=format&fit=crop');" role="img" aria-label="Consulting team in a meeting"></div>
     <div class="wrap">
-      <div class="eyebrow reveal">How a search runs</div>
+      <p class="eyebrow reveal">How a search runs</p>
       <h2 class="reveal">Four steps. Shortlist in days, not weeks.</h2>
       <div class="process-grid">
         <div class="process-step">
@@ -129,12 +132,13 @@
     </div>
   </section>
 
-  <!-- 05 TECHNOLOGY WE STAFF -->
-  <section id="technology" class="scene light-scene">
+  <!-- 05 TECH STACK BAND — code image bg -->
+  <section id="tech" class="section tech-section">
+    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1754039984985-ef607d80113a?q=80&w=1800&auto=format&fit=crop');" role="img" aria-label="Close-up of code on a screen"></div>
     <div class="wrap">
-      <div class="eyebrow reveal">Where we place talent</div>
+      <p class="eyebrow reveal">Where we place talent</p>
       <h2 class="reveal">Technology we staff for.</h2>
-      <p class="lede reveal" style="margin-top:16px;">Our candidate bench spans the roles enterprise IT teams need most — kept current, not built cold when a role opens.</p>
+      <p class="lede reveal">Our candidate bench spans the roles enterprise IT teams need most — kept current, not built cold when a role opens.</p>
       <div class="pill-grid">
         <div class="pill">Cloud (AWS / Azure)</div>
         <div class="pill">DevOps</div>
@@ -147,12 +151,54 @@
     </div>
   </section>
 
-  <!-- 06 INDUSTRIES / CLIENTS -->
-  <section id="industries" class="scene">
+  <!-- 06 ABOUT / CULTURE — team image bg -->
+  <section id="about" class="section">
+    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1758873269276-9518d0cb4a0b?q=80&w=1800&auto=format&fit=crop');" role="img" aria-label="Team culture and collaboration"></div>
+    <div class="wrap about-grid">
+      <div>
+        <p class="eyebrow reveal">About Cybaxis</p>
+        <h2 class="reveal">What a shortlist from us actually means.</h2>
+        <p class="lede reveal" style="margin-top:16px;">Founded in 2021, Cybaxis Corp was built to make IT staffing move at the speed hiring managers actually need — without cutting corners on who ends up on the team.</p>
+        <div class="about-list reveal">
+          <div class="about-item">
+            <div class="n">01</div>
+            <div>
+              <h4>Market knowledge</h4>
+              <p>We know which roles are hard to fill in each industry we serve, before you tell us — so sourcing starts on the right foot.</p>
+            </div>
+          </div>
+          <div class="about-item">
+            <div class="n">02</div>
+            <div>
+              <h4>Direct sourcing</h4>
+              <p>We reach strong candidates who aren't actively browsing job boards, not just the ones already applying everywhere.</p>
+            </div>
+          </div>
+          <div class="about-item">
+            <div class="n">03</div>
+            <div>
+              <h4>Screening rigor</h4>
+              <p>Technical vetting plus a real read on team fit — a shortlist of three beats a stack of thirty unscreened resumes.</p>
+            </div>
+          </div>
+          <div class="about-item">
+            <div class="n">04</div>
+            <div>
+              <h4>Relationship management</h4>
+              <p>We stay involved after placement — for the life of the contract, or through the first year of a permanent hire.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 CLIENTS & TESTIMONIALS -->
+  <section id="clients" class="section">
     <div class="wrap">
-      <div class="eyebrow reveal">Selected clients</div>
+      <p class="eyebrow reveal">Selected clients</p>
       <h2 class="reveal">A few of our top clients.</h2>
-      <p class="lede reveal" style="margin-top:10px; margin-bottom:0;">A snapshot of the enterprise teams we've placed IT talent with — not the full list.</p>
+      <p class="lede reveal" style="margin-top:10px;">A snapshot of the enterprise teams we've placed IT talent with — not the full list.</p>
       <div class="industry-list">
         <div class="industry-row">
           <div class="n">01</div>
@@ -201,68 +247,13 @@
     </div>
   </section>
 
-  <!-- 07 WHY CYBAXIS + NUMBERS -->
-  <section id="why-numbers" class="scene">
-    <div class="wrap why-grid">
-      <div>
-        <div class="eyebrow reveal">Why Cybaxis</div>
-        <h2 class="reveal" style="margin-bottom:20px;">What a shortlist from us actually means.</h2>
-        <div class="why-list reveal">
-          <div class="why-item">
-            <div class="n">01</div>
-            <div>
-              <h4>Market knowledge</h4>
-              <p>We know which roles are hard to fill in each industry we serve, before you tell us — so sourcing starts on the right foot.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <div class="n">02</div>
-            <div>
-              <h4>Direct sourcing</h4>
-              <p>We reach strong candidates who aren't actively browsing job boards, not just the ones already applying everywhere.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <div class="n">03</div>
-            <div>
-              <h4>Screening rigor</h4>
-              <p>Technical vetting plus a real read on team fit — a shortlist of three beats a stack of thirty unscreened resumes.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <div class="n">04</div>
-            <div>
-              <h4>Relationship management</h4>
-              <p>We stay involved after placement — for the life of the contract, or through the first year of a permanent hire.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="stat-stack">
-        <div class="stat-block reveal">
-          <div class="num">USA, Canada &amp; India</div>
-          <div class="lbl">Where we place talent</div>
-        </div>
-        <div class="stat-block reveal">
-          <div class="num">Contract &amp; permanent</div>
-          <div class="lbl">Engagement types</div>
-        </div>
-        <div class="stat-block reveal">
-          <div class="num"><span data-countup="2021">0</span></div>
-          <div class="lbl">Cybaxis Corp founded</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 08 CLOSE -->
-  <section id="close" class="scene scene-close">
-    <div class="scene-image-bg" style="background-image:url('https://images.unsplash.com/photo-1758518730384-be3d205838e8?q=80&w=1600&auto=format&fit=crop');"></div>
+  <!-- 08 CTA BANNER + CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?q=80&w=1800&auto=format&fit=crop');" role="img" aria-label="Server infrastructure"></div>
     <div class="wrap">
       <div class="close-cta">
-        <div class="eyebrow reveal">Get in touch</div>
-        <h2 class="reveal">Have an open seat?<br>Looking for your next one?</h2>
+        <p class="eyebrow reveal">Get in touch</p>
+        <h2 class="reveal">Let's build your team.</h2>
         <p class="lede reveal">Hiring managers: tell us what you need, and we'll shortlist fast. IT professionals: tell us about yourself, and we'll reach out when the right role opens.</p>
       </div>
 
@@ -318,15 +309,34 @@
           </div>
         </div>
       </div>
-
-      <div class="close-bottom">
-        <span>&copy; 2026 Cybaxis Corp. All rights reserved.</span>
-        <span>IT Staffing &middot; Est. 2021</span>
-      </div>
     </div>
   </section>
 
 </main>
+
+<!-- 09 FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="#hero" class="footer-logo"><img src="assets/logo-white-web.png" alt="Cybaxis Corp"></a>
+        <p class="footer-tagline">IT staffing and talent solutions for enterprise teams across the USA, Canada, and India.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#tech">Tech</a>
+        <a href="#about">About</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Cybaxis Corp. All rights reserved.</span>
+      <span>IT Staffing &middot; Est. 2021 &middot; <a href="mailto:info@cybaxiscorp.net">info@cybaxiscorp.net</a></span>
+    </div>
+  </div>
+</footer>
 
 <script src="script.js"></script>
 </body>
