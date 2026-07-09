@@ -12,15 +12,39 @@
 </head>
 <body>
 
+<div class="dot-field d1" data-speed="0.09" data-tile="34"></div>
+<div class="dot-field d2" data-speed="-0.06" data-tile="54"></div>
+<div class="dot-field d3" data-speed="0.14" data-tile="22"></div>
+<div class="dot-field d4" data-speed="-0.18" data-tile="16"></div>
+<div class="grain"></div>
+
 <a href="#hero" class="fixed-logo">
   <img src="assets/logo-color-web.png" alt="Cybaxis Corp" class="logo-color">
   <img src="assets/logo-white-web.png" alt="Cybaxis Corp" class="logo-white">
 </a>
 
+<nav class="dot-nav" aria-label="Sections">
+  <a href="#hero" aria-label="Hero"></a>
+  <a href="#problem" aria-label="The problem"></a>
+  <a href="#deliver" aria-label="What we deliver"></a>
+  <a href="#how-we-work" aria-label="How we work"></a>
+  <a href="#technology" aria-label="Technology we staff"></a>
+  <a href="#industries" aria-label="Industries and clients"></a>
+  <a href="#why-numbers" aria-label="Why Cybaxis"></a>
+  <a href="#close" aria-label="Get in touch"></a>
+</nav>
+
+<div class="float-glass-card" aria-hidden="true">
+  <span class="fgc-status">Available</span>
+  <div class="fgc-role">Senior Cloud Engineer</div>
+  <div class="fgc-sub">Contract &middot; AWS / Azure</div>
+</div>
+
 <main>
 
   <!-- 01 HERO -->
   <section id="hero" class="scene scene-hero">
+    <div class="scene-image-bg" style="background-image:url('https://images.unsplash.com/photo-1690378820474-b468b8ee64d3?q=80&w=1600&auto=format&fit=crop');"></div>
     <div class="wrap">
       <div class="eyebrow">Cybaxis Corp — IT Staffing</div>
       <h1>IT staffing, done fast, done right.</h1>
@@ -34,71 +58,52 @@
     <div class="scroll-cue"><span>Scroll</span><span class="stem"></span></div>
   </section>
 
-  <!-- 02 THE PROBLEM (pinned scrub text) -->
-  <section id="problem" class="scene-problem">
-    <div class="scrub-sticky">
+  <!-- 02 THE PROBLEM -->
+  <section id="problem" class="scene scene-problem">
+    <div class="wrap">
       <p class="scrub-text">
-        <span>An</span> <span>open</span> <span>seat</span> <span>doesn't</span> <span>just</span> <span>sit</span> <span>quietly</span> <span>—</span>
-        <span>it</span> <span>slows</span> <span>the</span> <span>whole</span> <span>team</span> <span>around</span> <span>it.</span>
-        <span class="gold">A</span> <span class="gold">wrong</span> <span class="gold">hire</span> <span>costs</span> <span>more</span> <span>than</span> <span>the</span> <span>salary</span> <span>—</span>
-        <span>it</span> <span>costs</span> <span>the</span> <span>time</span> <span>to</span> <span>notice,</span> <span>unwind,</span> <span>and</span> <span>start</span> <span>over.</span>
+        An open seat doesn't just sit quietly — it slows the whole team around it.
+        <span class="pop">A wrong hire</span> costs more than the salary — it costs the time to notice, unwind, and start over.
       </p>
     </div>
   </section>
 
-  <!-- 03 WHAT WE DELIVER (pinned cross-fade) -->
-  <section id="deliver" class="scene-deliver">
-    <div class="deliver-sticky">
-      <div class="deliver-panel active">
-        <div class="wrap">
+  <!-- 03 WHAT WE DELIVER -->
+  <section id="deliver" class="scene scene-deliver">
+    <div class="wrap">
+      <div class="eyebrow reveal">What we deliver</div>
+      <h2 class="reveal">Four ways we place IT talent.</h2>
+      <div class="deliver-grid">
+        <div class="deliver-card reveal">
           <div class="deliver-idx">01</div>
-          <div>
-            <h3>Contract Staffing</h3>
-            <p>Short-term IT talent that's productive by day three, not week three — for the ramp-up, the leave coverage, the deadline you can't push.</p>
-          </div>
+          <h3>Contract Staffing</h3>
+          <p>Short-term IT talent that's productive by day three, not week three — for the ramp-up, the leave coverage, the deadline you can't push.</p>
         </div>
-      </div>
-      <div class="deliver-panel">
-        <div class="wrap">
+        <div class="deliver-card reveal">
           <div class="deliver-idx">02</div>
-          <div>
-            <h3>Contract-to-Hire</h3>
-            <p>Try the fit on the job, then convert to permanent when it's right for both sides — without starting the search over from zero.</p>
-          </div>
+          <h3>Contract-to-Hire</h3>
+          <p>Try the fit on the job, then convert to permanent when it's right for both sides — without starting the search over from zero.</p>
         </div>
-      </div>
-      <div class="deliver-panel">
-        <div class="wrap">
+        <div class="deliver-card reveal">
           <div class="deliver-idx">03</div>
-          <div>
-            <h3>Direct Placement</h3>
-            <p>Permanent hires for roles that aren't going anywhere — vetted like it, sourced like it, closed like it matters.</p>
-          </div>
+          <h3>Direct Placement</h3>
+          <p>Permanent hires for roles that aren't going anywhere — vetted like it, sourced like it, closed like it matters.</p>
         </div>
-      </div>
-      <div class="deliver-panel">
-        <div class="wrap">
+        <div class="deliver-card reveal">
           <div class="deliver-idx">04</div>
-          <div>
-            <h3>Executive &amp; Niche Search</h3>
-            <p>Leadership and hard-to-fill specialist roles, found through direct outreach — not a job board post and a wait.</p>
-          </div>
+          <h3>Executive &amp; Niche Search</h3>
+          <p>Leadership and hard-to-fill specialist roles, found through direct outreach — not a job board post and a wait.</p>
         </div>
-      </div>
-      <div class="deliver-progress">
-        <div class="bar active"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
       </div>
     </div>
   </section>
 
   <!-- 04 HOW WE WORK -->
-  <section id="how-we-work" class="scene tight">
+  <section id="how-we-work" class="scene">
+    <div class="scene-image-bg" style="background-image:url('https://images.unsplash.com/photo-1758870973151-a5b0a7a63e5f?q=80&w=1600&auto=format&fit=crop');"></div>
     <div class="wrap">
       <div class="eyebrow reveal">How a search runs</div>
-      <h2 class="reveal" style="margin-bottom:56px;">Four steps. Shortlist in days, not weeks.</h2>
+      <h2 class="reveal">Four steps. Shortlist in days, not weeks.</h2>
       <div class="process-grid">
         <div class="process-step">
           <div class="phase">Step 1</div>
@@ -125,11 +130,11 @@
   </section>
 
   <!-- 05 TECHNOLOGY WE STAFF -->
-  <section id="technology" class="scene alt">
+  <section id="technology" class="scene light-scene">
     <div class="wrap">
       <div class="eyebrow reveal">Where we place talent</div>
       <h2 class="reveal">Technology we staff for.</h2>
-      <p class="lede reveal" style="margin-top:20px;">Our candidate bench spans the roles enterprise IT teams need most — kept current, not built cold when a role opens.</p>
+      <p class="lede reveal" style="margin-top:16px;">Our candidate bench spans the roles enterprise IT teams need most — kept current, not built cold when a role opens.</p>
       <div class="pill-grid">
         <div class="pill">Cloud (AWS / Azure)</div>
         <div class="pill">DevOps</div>
@@ -147,7 +152,7 @@
     <div class="wrap">
       <div class="eyebrow reveal">Selected clients</div>
       <h2 class="reveal">A few of our top clients.</h2>
-      <p class="lede reveal" style="margin-top:16px;">A snapshot of the enterprise teams we've placed IT talent with — not the full list.</p>
+      <p class="lede reveal" style="margin-top:10px; margin-bottom:0;">A snapshot of the enterprise teams we've placed IT talent with — not the full list.</p>
       <div class="industry-list">
         <div class="industry-row">
           <div class="n">01</div>
@@ -197,11 +202,11 @@
   </section>
 
   <!-- 07 WHY CYBAXIS + NUMBERS -->
-  <section id="why-numbers" class="scene tight">
+  <section id="why-numbers" class="scene">
     <div class="wrap why-grid">
       <div>
         <div class="eyebrow reveal">Why Cybaxis</div>
-        <h2 class="reveal" style="margin-bottom:40px;">What a shortlist from us actually means.</h2>
+        <h2 class="reveal" style="margin-bottom:20px;">What a shortlist from us actually means.</h2>
         <div class="why-list reveal">
           <div class="why-item">
             <div class="n">01</div>
@@ -251,8 +256,9 @@
     </div>
   </section>
 
-  <!-- 08 CLOSE (footer scene) -->
+  <!-- 08 CLOSE -->
   <section id="close" class="scene scene-close">
+    <div class="scene-image-bg" style="background-image:url('https://images.unsplash.com/photo-1758518730384-be3d205838e8?q=80&w=1600&auto=format&fit=crop');"></div>
     <div class="wrap">
       <div class="close-cta">
         <div class="eyebrow reveal">Get in touch</div>
