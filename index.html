@@ -3,339 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cybaxis Corp | IT Staffing, Done Fast, Done Right</title>
-<meta name="description" content="Cybaxis Corp is an IT staffing firm placing contract, contract-to-hire, and permanent IT talent for enterprise teams. Pre-vetted candidates, shortlisted in days. Founded 2021.">
+<title>Cybaxis Corp | IT Staffing & Consulting</title>
+<meta name="description" content="Cybaxis Corp connects vetted technology talent with the teams building what's next — IT staffing, consulting and managed delivery.">
 <link rel="icon" type="image/png" href="assets/favicon-32.png">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav class="site-nav" aria-label="Primary">
-  <div class="nav-wrap">
-    <a href="#hero" class="nav-logo"><img src="assets/logo-white-web.png" alt="Cybaxis Corp"></a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"></button>
-    <div class="nav-links">
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">CYBAXIS<span>.</span></a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#tech">Tech</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Talk to us</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="ridge-field" aria-hidden="true">
+    <svg class="ridge ridge-1" viewBox="0 0 1600 400" preserveAspectRatio="none"><path d="M0,400 L0,260 L120,220 L220,260 L340,150 L420,200 L520,120 L620,180 L720,90 L820,160 L940,100 L1040,170 L1160,110 L1280,190 L1400,130 L1600,220 L1600,400 Z"/></svg>
+    <svg class="ridge ridge-2" viewBox="0 0 1600 400" preserveAspectRatio="none"><path d="M0,400 L0,300 L100,260 L200,290 L300,230 L400,270 L520,190 L620,240 L740,170 L860,230 L980,160 L1100,220 L1220,150 L1340,210 L1460,170 L1600,240 L1600,400 Z"/></svg>
+    <svg class="ridge ridge-3" viewBox="0 0 1600 400" preserveAspectRatio="none"><path d="M0,400 L0,340 L140,310 L260,335 L380,290 L500,320 L620,270 L740,310 L860,260 L980,300 L1100,255 L1220,295 L1340,265 L1460,300 L1600,280 L1600,400 Z"/></svg>
+    <svg class="ridge-nodes" id="ridgeNodes" viewBox="0 0 1600 400" preserveAspectRatio="none"></svg>
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow">Your Technology Talent Partner</p>
+    <h1>Building high-performing technology teams, one engagement at a time.</h1>
+    <p class="hero-sub">Cybaxis Corp connects organizations with vetted IT professionals through contract staffing, consulting and managed delivery — across engineering, cloud, data and cybersecurity.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">Start a search</a>
+      <a href="#services" class="btn btn-ghost">See what we do</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <!-- Placeholder figures — swap in exact numbers confirmed against cybaxiscorp.net -->
+    <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-label">Years delivering</span></div>
+    <div class="stat"><span class="stat-num" data-target="250" data-suffix="+">0</span><span class="stat-label">Roles filled</span></div>
+    <div class="stat"><span class="stat-num" data-target="92" data-suffix="%">0</span><span class="stat-label">Client retention</span></div>
+    <div class="stat"><span class="stat-num" data-target="4" data-suffix="+">0</span><span class="stat-label">Industries served</span></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="parallax-bg" data-speed="0.25" style="background-image:url('https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?q=80&w=1800&auto=format&fit=crop')"></div>
+  <div class="section-overlay"></div>
+  <div class="section-inner">
+    <p class="eyebrow light">What we do</p>
+    <h2>Flexible staffing and delivery solutions for modern businesses.</h2>
+    <div class="card-grid">
+      <article class="card">
+        <h3>IT Staffing</h3>
+        <p>Contract, contract-to-hire and direct-hire placement across engineering, data, cloud and QA roles — scaled to the timeline you're actually working against.</p>
+      </article>
+      <article class="card">
+        <h3>IT Consulting</h3>
+        <p>Advisory and hands-on delivery support for modernization, architecture and platform initiatives, led by people who've done the work themselves.</p>
+      </article>
+      <article class="card">
+        <h3>Managed IT Services</h3>
+        <p>Ongoing operational support that turns your infrastructure into a business asset, so your internal team can focus on growth instead of upkeep.</p>
+      </article>
+      <article class="card">
+        <h3>Cloud &amp; DevOps</h3>
+        <p>Migration, CI/CD and platform engineering for teams scaling faster than their infrastructure can keep up.</p>
+      </article>
+      <article class="card">
+        <h3>Cybersecurity</h3>
+        <p>Assessments and managed security support to close gaps before they become incidents.</p>
+      </article>
+      <article class="card">
+        <h3>Recruitment Process Outsourcing</h3>
+        <p>End-to-end sourcing, screening, interview coordination and onboarding support for high-volume hiring needs.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="parallax-bg" data-speed="0.2" style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1800&auto=format&fit=crop')"></div>
+  <div class="section-overlay dark"></div>
+  <div class="section-inner">
+    <p class="eyebrow light">How we work</p>
+    <h2>A dependable process for every hiring challenge.</h2>
+    <div class="rise-grid">
+      <div class="rise-card" data-speed="0.03"><span class="rise-num">01</span><h3>Discovery</h3><p>We scope the role against your real stack, team shape and delivery timeline — not just a job title.</p></div>
+      <div class="rise-card" data-speed="0.06"><span class="rise-num">02</span><h3>Strategic Sourcing</h3><p>Targeted outreach into a screened network, connecting you with relevant professionals instead of job-board volume.</p></div>
+      <div class="rise-card" data-speed="0.09"><span class="rise-num">03</span><h3>Technical Screening</h3><p>Structured evaluation of technical capability and communication before anyone reaches your calendar.</p></div>
+      <div class="rise-card" data-speed="0.12"><span class="rise-num">04</span><h3>Relationship Management</h3><p>Clear communication and ongoing support for clients and consultants through every stage of the engagement.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="tech" id="tech">
+  <div class="parallax-bg" data-speed="0.15" style="background-image:url('https://images.unsplash.com/photo-1754039984985-ef607d80113a?q=80&w=1800&auto=format&fit=crop')"></div>
+  <div class="section-overlay"></div>
+  <div class="section-inner">
+    <p class="eyebrow light">Where we work</p>
+    <h2>Talent across today's most in-demand technology areas.</h2>
+    <ul class="tag-cloud">
+      <li>Java</li><li>Python</li><li>.NET</li><li>React</li><li>Angular</li><li>Node.js</li>
+      <li>AWS</li><li>Azure</li><li>GCP</li><li>Kubernetes</li>
+      <li>Salesforce</li><li>ServiceNow</li><li>SAP</li><li>Data Engineering</li>
+      <li>DevOps</li><li>Cybersecurity</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1758873269276-9518d0cb4a0b?q=80&w=1400&auto=format&fit=crop" alt="Cybaxis team collaborating" loading="lazy">
+    </div>
+    <div class="about-text">
+      <p class="eyebrow">Who we are</p>
+      <h2>Technology staffing designed around your business goals.</h2>
+      <p>Cybaxis Corp is a technology staffing and consulting partner that helps organizations find the right people for critical initiatives — through project-based, contract, contract-to-hire and permanent hiring.</p>
+      <ul class="pillar-list">
+        <li><strong>Tailored Hiring Strategy</strong> — recruiting approaches shaped around the role, timeline and team dynamics, not a generic pipeline.</li>
+        <li><strong>Rigorous Screening</strong> — technical capability and communication evaluated before a candidate reaches your calendar.</li>
+        <li><strong>Partnership Beyond Placement</strong> — responsive support for clients and consultants through every stage of the engagement.</li>
+      </ul>
+      <p>Serving hiring companies and IT professionals across the USA, Canada, and India.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS / TESTIMONIALS -->
+<section class="clients" id="clients">
+  <div class="section-inner">
+    <p class="eyebrow">Who we work with</p>
+    <h2>Partnerships built on quality, transparency and dependable delivery.</h2>
+    <div class="client-row">
+      <span>JetBlue Airways</span><span>CSAA Insurance Group</span><span>Levio</span><span>PayByPhone</span>
+    </div>
+    <blockquote class="testimonial">
+      <p>&ldquo;Cybaxis Corp understood exactly what we needed and moved fast. The candidates they sent over weren't just technically qualified — they were genuinely a fit for our team. What could have been a long, painful search turned into a straightforward process.&rdquo;</p>
+      <cite>— A Cybaxis Corp client</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="ridge-field small" aria-hidden="true">
+    <svg class="ridge ridge-1" viewBox="0 0 1600 200" preserveAspectRatio="none"><path d="M0,200 L0,140 L200,110 L400,150 L600,90 L800,130 L1000,80 L1200,120 L1400,70 L1600,110 L1600,200 Z"/></svg>
+  </div>
+  <div class="section-inner center">
+    <h2>Ready to strengthen your technology team?</h2>
+    <p>Partner with Cybaxis Corp for reliable IT staffing and consulting support. Tell us what you're hiring for — we'll come back with people, not resumes.</p>
+    <a href="#contact" class="btn btn-primary">Start a conversation</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <p class="eyebrow light">Get in touch</p>
+    <h2>Let's build your team.</h2>
+    <p class="contact-lede">Hiring managers: tell us what you need, and we'll shortlist fast. IT professionals: tell us about yourself, and we'll reach out when the right role opens.</p>
+    <div class="contact-grid">
+      <form id="contact-form" action="https://formspree.io/f/mgojjaer" method="POST">
+        <div class="form-msg" data-form-msg></div>
+        <input type="hidden" name="_subject" value="New inquiry — Cybaxis Corp contact form">
+        <div class="formgrid">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company">
+          </div>
+          <div class="field full">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field full">
+            <label for="topic">What are you working on?</label>
+            <select id="topic" name="topic">
+              <option>IT Staffing</option>
+              <option>IT Consulting</option>
+              <option>Managed IT Services</option>
+              <option>Cloud &amp; DevOps</option>
+              <option>Cybersecurity</option>
+              <option>Recruitment Process Outsourcing</option>
+              <option>I'm a candidate</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="message">Details</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary contact-submit">Send message</button>
+      </form>
+      <div class="contact-info">
+        <div class="row">
+          <div class="k">Email</div>
+          <div class="v"><a href="mailto:info@cybaxiscorp.net">info@cybaxiscorp.net</a></div>
+        </div>
+        <div class="row">
+          <div class="k">Service area</div>
+          <div class="v">USA, Canada, and India.</div>
+        </div>
+        <div class="row">
+          <div class="k">Response time</div>
+          <div class="v">Within one business day.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a href="#top" class="logo">CYBAXIS<span>.</span></a>
+      <p>Serving clients across the USA, Canada, and India.</p>
+      <a href="mailto:info@cybaxiscorp.net">info@cybaxiscorp.net</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
       <a href="#services">Services</a>
       <a href="#process">Process</a>
       <a href="#tech">Tech</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="#contact" class="btn btn-primary btn-sm">Talk to us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <a href="#contact">Start a search</a>
+      <a href="mailto:info@cybaxiscorp.net">Email us</a>
     </div>
   </div>
-</nav>
-
-<main>
-
-  <!-- 01 HERO — talent network parallax -->
-  <section id="hero" class="section hero">
-    <div class="hero-image-bg" role="img" aria-label="Modern office building exterior"></div>
-    <div class="network-layer" aria-hidden="true">
-      <svg class="network-svg"></svg>
-    </div>
-    <div class="wrap hero-content">
-      <p class="eyebrow">IT Staffing &amp; Talent Solutions</p>
-      <h1>We connect technology talent to the teams building what's next.</h1>
-      <p class="lede">Cybaxis Corp places contract, contract-to-hire, and permanent IT talent for enterprise teams — pre-vetted candidates, shortlisted fast, ready to deploy.</p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn btn-primary">Start a search</a>
-        <a href="#clients" class="btn btn-ghost">See our work</a>
-      </div>
-      <a href="#contact" class="hero-candidate-link">Looking for your next role instead? &rarr;</a>
-    </div>
-    <div class="scroll-cue"><span>Scroll</span><span class="stem"></span></div>
-  </section>
-
-  <!-- 02 TRUST / STATS BAND -->
-  <section id="trust" class="trust-band" aria-label="Company facts">
-    <div class="wrap">
-      <div class="trust-grid">
-        <div class="trust-stat">
-          <div class="num"><span data-countup="2021">0</span></div>
-          <div class="lbl">Founded</div>
-        </div>
-        <div class="trust-stat">
-          <div class="num">USA &middot; Canada &middot; India</div>
-          <div class="lbl">Where we place talent</div>
-        </div>
-        <div class="trust-stat">
-          <div class="num">Contract &amp; Permanent</div>
-          <div class="lbl">Engagement types</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 03 SERVICES — image parallax bg -->
-  <section id="services" class="section">
-    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?q=80&w=1800&auto=format&fit=crop');" role="img" aria-label="IT professionals collaborating"></div>
-    <div class="wrap">
-      <p class="eyebrow reveal">What We Deliver</p>
-      <h2 class="reveal">Four ways we place IT talent.</h2>
-      <div class="card-grid">
-        <div class="rise-card">
-          <div class="idx">01</div>
-          <h3>Contract Staffing</h3>
-          <p>Short-term IT talent that's productive by day three, not week three — for the ramp-up, the leave coverage, the deadline you can't push.</p>
-        </div>
-        <div class="rise-card">
-          <div class="idx">02</div>
-          <h3>Contract-to-Hire</h3>
-          <p>Try the fit on the job, then convert to permanent when it's right for both sides — without starting the search over from zero.</p>
-        </div>
-        <div class="rise-card">
-          <div class="idx">03</div>
-          <h3>Direct Placement</h3>
-          <p>Permanent hires for roles that aren't going anywhere — vetted like it, sourced like it, closed like it matters.</p>
-        </div>
-        <div class="rise-card">
-          <div class="idx">04</div>
-          <h3>Executive &amp; Niche Search</h3>
-          <p>Leadership and hard-to-fill specialist roles, found through direct outreach — not a job board post and a wait.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 04 PROCESS — image parallax bg, layered-card rise -->
-  <section id="process" class="section">
-    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1800&auto=format&fit=crop');" role="img" aria-label="Consulting team in a meeting"></div>
-    <div class="wrap">
-      <p class="eyebrow reveal">How a search runs</p>
-      <h2 class="reveal">Four steps. Shortlist in days, not weeks.</h2>
-      <div class="process-grid">
-        <div class="process-step">
-          <div class="phase">Step 1</div>
-          <h4>Intake</h4>
-          <p>A short call on the role, the stack, and how fast you need someone in the seat.</p>
-        </div>
-        <div class="process-step">
-          <div class="phase">Step 2</div>
-          <h4>Shortlist</h4>
-          <p>Pre-vetted candidates matched to your stack, delivered fast.</p>
-        </div>
-        <div class="process-step">
-          <div class="phase">Step 3</div>
-          <h4>Interview</h4>
-          <p>We handle scheduling and logistics so you can focus on the conversation.</p>
-        </div>
-        <div class="process-step">
-          <div class="phase">Step 4</div>
-          <h4>Place &amp; Support</h4>
-          <p>Offer support, onboarding help, and check-ins after day one on the job.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05 TECH STACK BAND — code image bg -->
-  <section id="tech" class="section tech-section">
-    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1754039984985-ef607d80113a?q=80&w=1800&auto=format&fit=crop');" role="img" aria-label="Close-up of code on a screen"></div>
-    <div class="wrap">
-      <p class="eyebrow reveal">Where we place talent</p>
-      <h2 class="reveal">Technology we staff for.</h2>
-      <p class="lede reveal">Our candidate bench spans the roles enterprise IT teams need most — kept current, not built cold when a role opens.</p>
-      <div class="pill-grid">
-        <div class="pill">Cloud (AWS / Azure)</div>
-        <div class="pill">DevOps</div>
-        <div class="pill">Data Engineering</div>
-        <div class="pill">Cybersecurity</div>
-        <div class="pill">Salesforce</div>
-        <div class="pill">ServiceNow</div>
-        <div class="pill">Software Development</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 06 ABOUT / CULTURE — team image bg -->
-  <section id="about" class="section">
-    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1758873269276-9518d0cb4a0b?q=80&w=1800&auto=format&fit=crop');" role="img" aria-label="Team culture and collaboration"></div>
-    <div class="wrap about-grid">
-      <div>
-        <p class="eyebrow reveal">About Cybaxis</p>
-        <h2 class="reveal">What a shortlist from us actually means.</h2>
-        <p class="lede reveal" style="margin-top:16px;">Founded in 2021, Cybaxis Corp was built to make IT staffing move at the speed hiring managers actually need — without cutting corners on who ends up on the team.</p>
-        <div class="about-list reveal">
-          <div class="about-item">
-            <div class="n">01</div>
-            <div>
-              <h4>Market knowledge</h4>
-              <p>We know which roles are hard to fill in each industry we serve, before you tell us — so sourcing starts on the right foot.</p>
-            </div>
-          </div>
-          <div class="about-item">
-            <div class="n">02</div>
-            <div>
-              <h4>Direct sourcing</h4>
-              <p>We reach strong candidates who aren't actively browsing job boards, not just the ones already applying everywhere.</p>
-            </div>
-          </div>
-          <div class="about-item">
-            <div class="n">03</div>
-            <div>
-              <h4>Screening rigor</h4>
-              <p>Technical vetting plus a real read on team fit — a shortlist of three beats a stack of thirty unscreened resumes.</p>
-            </div>
-          </div>
-          <div class="about-item">
-            <div class="n">04</div>
-            <div>
-              <h4>Relationship management</h4>
-              <p>We stay involved after placement — for the life of the contract, or through the first year of a permanent hire.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 07 CLIENTS & TESTIMONIALS -->
-  <section id="clients" class="section">
-    <div class="wrap">
-      <p class="eyebrow reveal">Selected clients</p>
-      <h2 class="reveal">A few of our top clients.</h2>
-      <p class="lede reveal" style="margin-top:10px;">A snapshot of the enterprise teams we've placed IT talent with — not the full list.</p>
-      <div class="industry-list">
-        <div class="industry-row">
-          <div class="n">01</div>
-          <div>
-            <h4>JetBlue Airways</h4>
-            <div class="sector">Aviation — IT staffing placements</div>
-          </div>
-        </div>
-        <div class="industry-row">
-          <div class="n">02</div>
-          <div>
-            <h4>CSAA Insurance Group</h4>
-            <div class="sector">Insurance — IT staffing placements</div>
-          </div>
-        </div>
-        <div class="industry-row">
-          <div class="n">03</div>
-          <div>
-            <h4>Levio</h4>
-            <div class="sector">Professional Services — IT staffing placements</div>
-          </div>
-        </div>
-        <div class="industry-row">
-          <div class="n">04</div>
-          <div>
-            <h4>PayByPhone</h4>
-            <div class="sector">Fintech &amp; Mobility — IT staffing placements</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-grid">
-        <div class="glass-card reveal">
-          <div class="testimonial-n">01</div>
-          <blockquote>"Cybaxis Corp understood exactly what we needed and moved fast. The candidates they sent over weren't just technically qualified — they were genuinely a fit for our team. What could have been a long, painful search turned into a straightforward process."</blockquote>
-        </div>
-        <div class="glass-card reveal">
-          <div class="testimonial-n">02</div>
-          <blockquote>"We brought someone on through Cybaxis on a contract basis to de-risk the hire, and it was the right call. The transition to full-time was seamless once we knew it was a fit. That's exactly the kind of flexibility we needed."</blockquote>
-        </div>
-        <div class="glass-card reveal">
-          <div class="testimonial-n">03</div>
-          <blockquote>"What stood out working with Cybaxis was how responsive they were. Every question got answered quickly, every update came without us having to chase it. It felt like working with a team that was actually invested in getting it right, not just filling a seat."</blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 08 CTA BANNER + CONTACT -->
-  <section id="contact" class="section contact-section">
-    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?q=80&w=1800&auto=format&fit=crop');" role="img" aria-label="Server infrastructure"></div>
-    <div class="wrap">
-      <div class="close-cta">
-        <p class="eyebrow reveal">Get in touch</p>
-        <h2 class="reveal">Let's build your team.</h2>
-        <p class="lede reveal">Hiring managers: tell us what you need, and we'll shortlist fast. IT professionals: tell us about yourself, and we'll reach out when the right role opens.</p>
-      </div>
-
-      <div class="close-grid">
-        <div>
-          <form id="contact-form" action="https://formspree.io/f/mgojjaer" method="POST">
-            <div class="form-msg" data-form-msg></div>
-            <input type="hidden" name="_subject" value="New inquiry — Cybaxis Corp contact form">
-            <div class="formgrid">
-              <div class="field">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-              </div>
-              <div class="field">
-                <label for="company">Company</label>
-                <input type="text" id="company" name="company">
-              </div>
-              <div class="field full">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-              <div class="field full">
-                <label for="topic">What are you working on?</label>
-                <select id="topic" name="topic">
-                  <option>Contract Staffing</option>
-                  <option>Contract-to-Hire</option>
-                  <option>Direct Placement</option>
-                  <option>Executive Search</option>
-                  <option>I'm a candidate</option>
-                </select>
-              </div>
-              <div class="field full">
-                <label for="message">Details</label>
-                <textarea id="message" name="message" required></textarea>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send message</button>
-          </form>
-        </div>
-
-        <div class="close-contact">
-          <div class="row">
-            <div class="k">Email</div>
-            <div class="v"><a href="mailto:info@cybaxiscorp.net">info@cybaxiscorp.net</a></div>
-          </div>
-          <div class="row">
-            <div class="k">Service area</div>
-            <div class="v">Serving hiring companies and IT professionals across the USA, Canada, and India.</div>
-          </div>
-          <div class="row">
-            <div class="k">Response time</div>
-            <div class="v">Within one business day.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- 09 FOOTER -->
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <div>
-        <a href="#hero" class="footer-logo"><img src="assets/logo-white-web.png" alt="Cybaxis Corp"></a>
-        <p class="footer-tagline">IT staffing and talent solutions for enterprise teams across the USA, Canada, and India.</p>
-      </div>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#tech">Tech</a>
-        <a href="#about">About</a>
-        <a href="#clients">Clients</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Cybaxis Corp. All rights reserved.</span>
-      <span>IT Staffing &middot; Est. 2021 &middot; <a href="mailto:info@cybaxiscorp.net">info@cybaxiscorp.net</a></span>
-    </div>
-  </div>
+  <p class="footer-bottom">© <span id="year"></span> Cybaxis Corp. All rights reserved.</p>
 </footer>
 
 <script src="script.js"></script>
