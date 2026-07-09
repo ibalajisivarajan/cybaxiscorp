@@ -151,7 +151,7 @@ p { color: var(--grey); font-size: 16px; }
 .scene.dark .eyebrow::before { background: var(--cyan); }
 
 .lede { font-size: 19px; color: var(--ink-text); max-width: 620px; line-height: 1.65; }
-.scene.dark .lede { color: rgba(255, 255, 255, 0.78); }
+.scene.dark .lede, .scene-close .lede { color: rgba(255, 255, 255, 0.78); }
 
 /* ---------- 01 Hero ---------- */
 .scene-hero {
