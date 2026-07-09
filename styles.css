@@ -147,13 +147,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .client-logo{
   display:flex; align-items:center; justify-content:center;
   width:150px; height:76px; background:#fff; border-radius:10px;
-  padding:14px 20px;
+  padding:14px 20px; border:2px solid transparent;
+  transition:border-color .2s ease, transform .2s ease;
 }
-.client-logo img{
-  max-width:100%; max-height:100%; object-fit:contain;
-  filter:grayscale(1) opacity(.55); transition:filter .25s ease, transform .2s ease;
-}
-.client-logo:hover img, .client-logo:focus-within img{ filter:grayscale(0) opacity(1); transform:scale(1.04); }
+.client-logo:hover, .client-logo:focus-within{ border-color:var(--cyan); transform:translateY(-2px); }
+.client-logo img{ max-width:100%; max-height:100%; object-fit:contain; }
 .testimonial{ max-width:640px; margin:0 auto; }
 .testimonial p{ font-size:1.15rem; color:#fff; font-style:italic; line-height:1.6; }
 .testimonial cite{ display:block; margin-top:16px; font-size:.85rem; color:var(--cyan); font-style:normal; }
